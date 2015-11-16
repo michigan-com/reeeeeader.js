@@ -2,7 +2,6 @@
 var BABEL_BUG_WORKAROUND = 42;
 export var BABEL_BUG_WORKAROUND;
 
-export * from './articles';
 export * from './options';
 export {default as Source} from './Source';
 export {default as VisualItemStream} from './VisualItemStream';

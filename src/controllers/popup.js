@@ -1,4 +1,3 @@
-import done from 'promise-done';
 import _bindAll from 'lodash/function/bindAll';
 import _toArray from 'lodash/lang/toArray';
 
@@ -10,8 +9,6 @@ import renderPopup from '../../interim/views/popup';
 
 import querySelectorOrThrow from '../util/querySelectorOrThrow';
 import formatDuration from '../util/formatDuration';
-
-import xr from 'xr';
 
 
 export default class ReadingPopupController {
@@ -105,29 +102,15 @@ export default class ReadingPopupController {
     }
   }
 
-  loadArticle(articleId) {
-    console.log('Loading article with ID %s', articleId);
+  setLoadingState() {
     this.headlineEl.textContent = 'Loading...';
-    this._loadArticle(articleId).catch(done);
   }
 
-  async _loadArticle(articleId) {
-    let article = await M.loadArticle(articleId);
-    console.log('Loaded article:', article);
-    this.setSource(new M.Source(article.body, { _id: article.id, headline: article.headline }));
+  setArticle({ id, body, headline }) {
+    this.setSource(new M.Source(body, { _id: id, headline: headline }));
   }
 
-  loadText(textId) {
-    console.log('Loading text with ID %s', textId);
-    this.headlineEl.textContent = 'Loading...';
-    this._loadText(textId).catch(done);
-  }
-
-  async _loadText(textId) {
-    let text = await M.loadText(textId);
-    console.log('Loaded text:', text);
-    console.log('this.wpmSliderEl =', this.wpmSliderEl);
-
+  setSimpleSlowMode() {
     const maxSpeed = 300;
     const defaultSpeed = 60;
     this.wpmSliderEl.min = "1";
@@ -139,8 +122,6 @@ export default class ReadingPopupController {
       localStorage.setItem('wpmAdjusted', 'true');
       this.setReadingSpeed(defaultSpeed, 'initial-adjustment');
     }
-
-    this.setSource(new M.Source(text.body, { _id: text.id, headline: text.title }));
   }
 
   restart() {
