@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/michigan-com/reeeeeader.js#readme",
   "devDependencies": {
+    "babel-core": "^6.1.21",
     "babel-plugin-syntax-async-functions": "^6.1.18",
     "babel-plugin-syntax-object-rest-spread": "^6.1.18",
     "babel-plugin-transform-async-to-generator": "^6.1.18",
@@ -39,11 +40,10 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.1.19",
     "escape-html": "^1.0.3",
     "grapheme-breaker": "^0.3.2",
     "lodash": "^3.10.1",
-    "promise-done": "^1.0.1",
-    "xr": "^0.1.15",
     "xregexp": "^3.0.0"
   }
 }
