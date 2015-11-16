@@ -1,0 +1,46 @@
+div.michspeed-backdrop
+div.michspeed-container
+  aside.michspeed-content
+    header
+      h1
+
+    section
+      ul.michspeed-actions
+        li: button.michspeed-play play
+        li: button.michspeed-restart restart
+        li: button.michspeed-pp -para
+        li: button.michspeed-pn +para
+        li: button.michspeed-configure configure
+      div.michspeed-display
+        div.michspeed-word
+          span.michspeed-lhs
+            span.michspeed-prefix
+            span.michspeed-left
+          span.michspeed-reticle
+            span.michspeed-reticle-top ▾
+            span.michspeed-reticle-bottom ▾
+          span.michspeed-orp
+          span.michspeed-right
+          span.michspeed-suffix
+        div.michspeed-context-container
+          div.michspeed-context-subcontainer
+            div.michspeed-context
+      ul.michspeed-infoline
+        li.michspeed-left
+        li.michspeed-right
+      div.michspeed-slider
+        label(for="michspeed-wpm-slider") speed
+        input#michspeed-wpm-slider.michspeed-wpm(type="range", min="50", max="1000", value="100", step="10")
+        output#michspeed-wpm-value(for="michspeed-wpm-slider") 999
+      div.michspeed-options
+        each option in options
+          case option.type
+            when 'bool'
+              include ./checkbox
+            when 'multiplier'
+              include ./sliderOption
+            default
+              pre Unknown option: #{JSON.stringify(option, null, 2)}
+
+    footer
+      button.michspeed-close Close
