@@ -1,4 +1,4 @@
-export default class ReadingOptions() {
+export default class ReadingOptions {
   constructor() {
     this.options = {};
   }

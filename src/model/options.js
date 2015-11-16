@@ -1,4 +1,4 @@
-var OPTIONS = [
+export var OPTIONS = [
   {
     type: 'bool',
     key: 'orpHighlightEnabled',
@@ -83,5 +83,3 @@ var OPTIONS = [
 // for (let option in OPTIONS) {
 //   option.domId = `michspeed-od-${option.key}`;
 // }
-
-export var OPTIONS;
