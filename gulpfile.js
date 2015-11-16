@@ -1,6 +1,5 @@
 var gulp = require('gulp');
-var browserify = require('browserify');
-var babelify = require('babelify');
+var babel = require('gulp-babel');
 var source = require('vinyl-source-stream');
 var rename = require('gulp-rename');
 var less = require('gulp-less');
@@ -8,25 +7,20 @@ var jade = require('gulp-jade');
 var autoprefixer = require('gulp-autoprefixer');
 var insert = require('gulp-insert');
 
-gulp.task('default', ['jade', 'browserify', 'less']);
+gulp.task('default', ['jade', 'babel', 'less']);
 
 gulp.task('jade', function() {
   return gulp.src('./views/*.jade')
     .pipe(jade({ client: true }))
     .pipe(insert.prepend("var jade = require('jade/runtime');\n\n"))
     .pipe(insert.append(";\n\nmodule.exports = template;"))
-    .pipe(gulp.dest('./interim/views/'));
+    .pipe(gulp.dest('./lib/compiled-views/'));
 });
 
-gulp.task('browserify', function() {
-  browserify('./src/index.js', {
-      debug: true,
-    })
-    .transform(babelify)
-    .bundle()
-    .pipe(source('index.js'))
-    .pipe(rename('reeeeeader.js'))
-    .pipe(gulp.dest('./dist/'));
+gulp.task('babel', function() {
+  return gulp.src('./src/**/*.js')
+    .pipe(babel())
+    .pipe(gulp.dest('./lib'));
 });
 
 gulp.task('less', function() {
@@ -37,7 +31,7 @@ gulp.task('less', function() {
 });
 
 gulp.task('watch', ['default'], function() {
-  gulp.watch('./src/**/*.js', ['browserify']);
+  gulp.watch('./src/**/*.js', ['babel']);
   gulp.watch('./styles/*.less', ['less']);
   gulp.watch('./views/*.jade', ['jade', 'browserify']);
 });

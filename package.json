@@ -2,7 +2,7 @@
   "name": "reeeeeader",
   "version": "0.1.0",
   "description": "Michigan.com's speed reading component",
-  "main": "dist/reeeeeader.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "true"
   },
@@ -28,10 +28,9 @@
     "babel-preset-react": "^6.1.18",
     "babel-preset-stage-1": "^6.1.18",
     "babel-preset-stage-2": "^6.1.18",
-    "babelify": "^7.2.0",
-    "browserify": "^12.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
+    "gulp-babel": "^6.1.0",
     "gulp-insert": "^0.5.0",
     "gulp-jade": "^1.1.0",
     "gulp-less": "^3.0.5",

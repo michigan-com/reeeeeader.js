@@ -5,7 +5,7 @@ import * as M from '../model';
 
 import DisplayView from '../views/DisplayView';
 import { CheckboxOptionView, SliderOptionView } from '../views/OptionView';
-import renderPopup from '../../interim/views/popup';
+import renderPopup from '../compiled-views/popup';
 
 import querySelectorOrThrow from '../util/querySelectorOrThrow';
 import formatDuration from '../util/formatDuration';

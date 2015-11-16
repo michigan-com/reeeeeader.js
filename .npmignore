@@ -1,0 +1,9 @@
+*.log
+node_modules/
+
+/src/
+/styles/
+/views/
+/test/
+
+/.babelrc
