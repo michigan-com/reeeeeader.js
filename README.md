@@ -1,2 +1,3 @@
 # reeeeeader.js
-Michigan.com's speed reader component
+
+Michigan.com's speed reader component.

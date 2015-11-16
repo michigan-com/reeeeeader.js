@@ -1,0 +1,49 @@
+{
+  "name": "reeeeeader",
+  "version": "0.1.0",
+  "description": "Michigan.com's speed reading component",
+  "main": "dist/reeeeeader.js",
+  "scripts": {
+    "test": "true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michigan-com/reeeeeader.js.git"
+  },
+  "author": "Andrey Tarantsov <andrey@tarantsov.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michigan-com/reeeeeader.js/issues"
+  },
+  "homepage": "https://github.com/michigan-com/reeeeeader.js#readme",
+  "devDependencies": {
+    "babel-plugin-syntax-async-functions": "^6.1.18",
+    "babel-plugin-syntax-object-rest-spread": "^6.1.18",
+    "babel-plugin-transform-async-to-generator": "^6.1.18",
+    "babel-plugin-transform-decorators": "^6.1.18",
+    "babel-plugin-transform-export-extensions": "^6.1.18",
+    "babel-plugin-transform-object-rest-spread": "^6.1.18",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babel-preset-stage-1": "^6.1.18",
+    "babel-preset-stage-2": "^6.1.18",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-insert": "^0.5.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.0.5",
+    "gulp-rename": "^1.2.2",
+    "mocha": "^2.3.4",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "escape-html": "^1.0.3",
+    "grapheme-breaker": "^0.3.2",
+    "lodash": "^3.10.1",
+    "promise-done": "^1.0.1",
+    "xr": "^0.1.15",
+    "xregexp": "^3.0.0"
+  }
+}
