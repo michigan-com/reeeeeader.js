@@ -65,9 +65,6 @@ export default class SimpleReader {
     }
   }
 
-  setLoadingState() {
-  }
-
   setArticle({ id, body, headline }) {
     this.setSource(new M.Source(body, { _id: id, headline: headline }));
   }
@@ -248,5 +245,9 @@ export default class SimpleReader {
 
     // TODO pass this to the client
     // this.display.renderContext(this.currentContext);
+  }
+
+  getRemainingTime() {
+    return formatDuration(this.weightToTime(this.source.totalWeight - this.currentWeight));
   }
 }
