@@ -1,4 +1,5 @@
 import _bindAll from 'lodash/function/bindAll';
+import _assign from 'lodash/object/assign';
 
 import * as M from '../model';
 
@@ -8,17 +9,22 @@ import renderPopup from '../compiled-views/simplePopup';
 import querySelectorOrThrow from '../util/querySelectorOrThrow';
 import formatDuration from '../util/formatDuration';
 
-export default class SimpleReader {
+var DEFAULT_OPTS = {
+  onComplete: () => {}
+};
 
+export default class SimpleReader {
   /**
    * @constructs
    * @param {Object} el - HTML element in which the speed reader will be drawn.
    *    If no element is specified, one will be appended to the <body>
    */
-  constructor(el=null) {
+  constructor(el=null, opts={}) {
     this.el = el || document.createElement('div');
     this.el.className = 'michspeed';
     this.el.innerHTML = renderPopup();
+
+    this.opts = _assign({}, DEFAULT_OPTS, opts);
 
     if (!el) document.body.appendChild(this.el);
 
@@ -201,6 +207,7 @@ export default class SimpleReader {
       this.currentContext = ['', '', ''];
       this.currentWeight = (this.source ? this.source.totalWeight : 0);
       this.paused = true;
+      this.ended = true;
       this.renderCurrentItem();
       return;
     }
@@ -230,8 +237,7 @@ export default class SimpleReader {
 
   renderCurrentItem() {
     if (this.ended) {
-      // TODO
-      // this.display.renderEndState();
+      this.opts.onComplete();
     } else if (this.currentItem) {
       this.display.renderComponents(this.currentItem);
     }

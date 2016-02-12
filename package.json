@@ -1,6 +1,6 @@
 {
   "name": "reeeeeader",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Michigan.com's speed reading component",
   "main": "lib/index.js",
   "scripts": {
