@@ -1,4 +1,4 @@
-import { XRegExp } from 'xregexp';
+import XRegExp from 'xregexp';
 
 const WHITESPACE = XRegExp('(\\s+)');
 const NON_WORD = XRegExp('^[^\\p{L}\\p{N}]+$');

@@ -1,4 +1,4 @@
-import { XRegExp } from 'xregexp';
+import XRegExp from 'xregexp';
 
 // "sticky": should stay together with the corresponding word
 // "pointee": ends with a point

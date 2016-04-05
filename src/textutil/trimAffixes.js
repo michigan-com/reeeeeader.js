@@ -1,4 +1,4 @@
-import { XRegExp } from 'xregexp';
+import XRegExp from 'xregexp';
 
 const NON_ALPHANUMERIC = XRegExp('^[^\\p{L}\\p{N}]*$');
 
