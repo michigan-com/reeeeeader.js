@@ -10,7 +10,8 @@ import querySelectorOrThrow from '../util/querySelectorOrThrow';
 import formatDuration from '../util/formatDuration';
 
 var DEFAULT_OPTS = {
-  onComplete: () => {}
+  onComplete: () => {},
+  onNewWord: () => {}
 };
 
 export default class SimpleReader {
@@ -239,6 +240,7 @@ export default class SimpleReader {
     if (this.ended) {
       this.opts.onComplete();
     } else if (this.currentItem) {
+      this.opts.onNewWord();
       this.display.renderComponents(this.currentItem);
     }
     this.renderPauseContext();
@@ -253,7 +255,15 @@ export default class SimpleReader {
     // this.display.renderContext(this.currentContext);
   }
 
+  // Remainign time that's left
   getRemainingTime() {
     return formatDuration(this.weightToTime(this.source.totalWeight - this.currentWeight));
+  }
+
+  // Remaining % of the story that's left
+  getRemainingPercentage() {
+    let totalTime = this.weightToTime(this.source.totalWeight);
+    let remainingTime = this.weightToTime(this.currentWeight);
+    return  (remainingTime / totalTime) * 100;
   }
 }
