@@ -43,6 +43,6 @@
     "escape-html": "^1.0.3",
     "grapheme-breaker": "^0.3.2",
     "lodash": "^3.10.1",
-    "xregexp": "^3.0.0"
+    "xregexp": "3.0.0"
   }
 }
